@@ -1,0 +1,610 @@
+-e 
+running alu-test
+cat src/test/alu-test.txt | ./alu-main  | diff - src/test/alu-test-results.txt
+14,15c14,15
+< Carryflag:    0
+< Signflag:     0
+---
+> Carryflag:    1
+> Signflag:     1
+22,23c22,23
+< Accumulator:  00000001
+< Carryflag:    0
+---
+> Accumulator:  00000000
+> Carryflag:    1
+25,26c25,26
+< Zeroflag:     0
+< Overflowflag: 0
+---
+> Zeroflag:     1
+> Overflowflag: 1
+31c31
+< Accumulator:  10000001
+---
+> Accumulator:  10000000
+33c33
+< Signflag:     0
+---
+> Signflag:     1
+35c35
+< Overflowflag: 0
+---
+> Overflowflag: 1
+43c43
+< Zeroflag:     0
+---
+> Zeroflag:     1
+50c50
+< Carryflag:    0
+---
+> Carryflag:    1
+53c53
+< Overflowflag: 0
+---
+> Overflowflag: 1
+58c58
+< Accumulator:  10000011
+---
+> Accumulator:  10000010
+60c60
+< Signflag:     0
+---
+> Signflag:     1
+62c62
+< Overflowflag: 0
+---
+> Overflowflag: 1
+68,69c68,69
+< Carryflag:    0
+< Signflag:     0
+---
+> Carryflag:    1
+> Signflag:     1
+75c75
+< Register B:   00000001
+---
+> Register B:   11111111
+84c84
+< Register B:   00000001
+---
+> Register B:   11111111
+86c86
+< Carryflag:    0
+---
+> Carryflag:    1
+88c88
+< Zeroflag:     0
+---
+> Zeroflag:     1
+94,95c94,95
+< Accumulator:  00000001
+< Carryflag:    0
+---
+> Accumulator:  00000000
+> Carryflag:    1
+97c97
+< Zeroflag:     0
+---
+> Zeroflag:     1
+102c102
+< Register B:   10111111
+---
+> Register B:   01000001
+105c105
+< Signflag:     0
+---
+> Signflag:     1
+111c111
+< Register B:   11000000
+---
+> Register B:   01000000
+113c113
+< Carryflag:    0
+---
+> Carryflag:    1
+120,121c120,121
+< Register B:   10110000
+< Accumulator:  11100001
+---
+> Register B:   01010000
+> Accumulator:  11100000
+123c123
+< Signflag:     0
+---
+> Signflag:     1
+129c129
+< Register B:   10111111
+---
+> Register B:   01000001
+132c132
+< Signflag:     0
+---
+> Signflag:     1
+138c138
+< Register B:   01111111
+---
+> Register B:   10000001
+141c141
+< Signflag:     0
+---
+> Signflag:     1
+147c147
+< Register B:   01111111
+---
+> Register B:   10000001
+149c149
+< Carryflag:    0
+---
+> Carryflag:    1
+151c151
+< Zeroflag:     0
+---
+> Zeroflag:     1
+157,158c157,158
+< Accumulator:  00000001
+< Carryflag:    0
+---
+> Accumulator:  00000000
+> Carryflag:    1
+160c160
+< Zeroflag:     0
+---
+> Zeroflag:     1
+166,167c166,167
+< Accumulator:  00000001
+< Carryflag:    0
+---
+> Accumulator:  00000000
+> Carryflag:    1
+169c169
+< Zeroflag:     0
+---
+> Zeroflag:     1
+175,176c175,176
+< Accumulator:  00000001
+< Carryflag:    0
+---
+> Accumulator:  00000000
+> Carryflag:    1
+178c178
+< Zeroflag:     0
+---
+> Zeroflag:     1
+184,185c184,185
+< Accumulator:  00000001
+< Carryflag:    0
+---
+> Accumulator:  00000000
+> Carryflag:    1
+187c187
+< Zeroflag:     0
+---
+> Zeroflag:     1
+193,194c193,194
+< Accumulator:  00000001
+< Carryflag:    0
+---
+> Accumulator:  00000000
+> Carryflag:    1
+196c196
+< Zeroflag:     0
+---
+> Zeroflag:     1
+202,203c202,203
+< Accumulator:  00000001
+< Carryflag:    0
+---
+> Accumulator:  00000000
+> Carryflag:    1
+205c205
+< Zeroflag:     0
+---
+> Zeroflag:     1
+210,211c210,211
+< Accumulator:  00000001
+< Carryflag:    0
+---
+> Accumulator:  00000000
+> Carryflag:    1
+213c213
+< Zeroflag:     0
+---
+> Zeroflag:     1
+219,221c219,221
+< Accumulator:  00000001
+< Carryflag:    0
+< Signflag:     0
+---
+> Accumulator:  10101010
+> Carryflag:    1
+> Signflag:     1
+228,230c228,230
+< Accumulator:  00000001
+< Carryflag:    0
+< Signflag:     0
+---
+> Accumulator:  11111111
+> Carryflag:    1
+> Signflag:     1
+237,239c237,239
+< Accumulator:  00000001
+< Carryflag:    0
+< Signflag:     0
+---
+> Accumulator:  11111111
+> Carryflag:    1
+> Signflag:     1
+246,248c246,248
+< Accumulator:  00000001
+< Carryflag:    0
+< Signflag:     0
+---
+> Accumulator:  10101010
+> Carryflag:    1
+> Signflag:     1
+255,256c255,256
+< Accumulator:  00000001
+< Carryflag:    0
+---
+> Accumulator:  01010101
+> Carryflag:    1
+264,265c264,265
+< Accumulator:  00000001
+< Carryflag:    0
+---
+> Accumulator:  00000000
+> Carryflag:    1
+267c267
+< Zeroflag:     0
+---
+> Zeroflag:     1
+273,274c273,274
+< Accumulator:  00000001
+< Carryflag:    0
+---
+> Accumulator:  00000000
+> Carryflag:    1
+276c276
+< Zeroflag:     0
+---
+> Zeroflag:     1
+282,283c282,283
+< Accumulator:  00000001
+< Carryflag:    0
+---
+> Accumulator:  00000000
+> Carryflag:    1
+285c285
+< Zeroflag:     0
+---
+> Zeroflag:     1
+291,292c291,292
+< Accumulator:  00000001
+< Carryflag:    0
+---
+> Accumulator:  01010101
+> Carryflag:    1
+300,301c300,301
+< Accumulator:  00000001
+< Carryflag:    0
+---
+> Accumulator:  01010101
+> Carryflag:    1
+309,310c309,310
+< Accumulator:  00000001
+< Carryflag:    0
+---
+> Accumulator:  01010101
+> Carryflag:    1
+318,319c318,319
+< Accumulator:  00000001
+< Carryflag:    0
+---
+> Accumulator:  01010101
+> Carryflag:    1
+-e 
+running alu-test
+cat src/test/alu-test.txt | ./alu-main  | diff - src/test/alu-test-results.txt
+14,15c14,15
+< Carryflag:    0
+< Signflag:     0
+---
+> Carryflag:    1
+> Signflag:     1
+22,23c22,23
+< Accumulator:  00000001
+< Carryflag:    0
+---
+> Accumulator:  00000000
+> Carryflag:    1
+25,26c25,26
+< Zeroflag:     0
+< Overflowflag: 0
+---
+> Zeroflag:     1
+> Overflowflag: 1
+31c31
+< Accumulator:  10000001
+---
+> Accumulator:  10000000
+33c33
+< Signflag:     0
+---
+> Signflag:     1
+35c35
+< Overflowflag: 0
+---
+> Overflowflag: 1
+43c43
+< Zeroflag:     0
+---
+> Zeroflag:     1
+50c50
+< Carryflag:    0
+---
+> Carryflag:    1
+53c53
+< Overflowflag: 0
+---
+> Overflowflag: 1
+58c58
+< Accumulator:  10000011
+---
+> Accumulator:  10000010
+60c60
+< Signflag:     0
+---
+> Signflag:     1
+62c62
+< Overflowflag: 0
+---
+> Overflowflag: 1
+68,69c68,69
+< Carryflag:    0
+< Signflag:     0
+---
+> Carryflag:    1
+> Signflag:     1
+75c75
+< Register B:   00000001
+---
+> Register B:   11111111
+84c84
+< Register B:   00000001
+---
+> Register B:   11111111
+86c86
+< Carryflag:    0
+---
+> Carryflag:    1
+88c88
+< Zeroflag:     0
+---
+> Zeroflag:     1
+94,95c94,95
+< Accumulator:  00000001
+< Carryflag:    0
+---
+> Accumulator:  00000000
+> Carryflag:    1
+97c97
+< Zeroflag:     0
+---
+> Zeroflag:     1
+102c102
+< Register B:   10111111
+---
+> Register B:   01000001
+105c105
+< Signflag:     0
+---
+> Signflag:     1
+111c111
+< Register B:   11000000
+---
+> Register B:   01000000
+113c113
+< Carryflag:    0
+---
+> Carryflag:    1
+120,121c120,121
+< Register B:   10110000
+< Accumulator:  11100001
+---
+> Register B:   01010000
+> Accumulator:  11100000
+123c123
+< Signflag:     0
+---
+> Signflag:     1
+129c129
+< Register B:   10111111
+---
+> Register B:   01000001
+132c132
+< Signflag:     0
+---
+> Signflag:     1
+138c138
+< Register B:   01111111
+---
+> Register B:   10000001
+141c141
+< Signflag:     0
+---
+> Signflag:     1
+147c147
+< Register B:   01111111
+---
+> Register B:   10000001
+149c149
+< Carryflag:    0
+---
+> Carryflag:    1
+151c151
+< Zeroflag:     0
+---
+> Zeroflag:     1
+157,158c157,158
+< Accumulator:  00000001
+< Carryflag:    0
+---
+> Accumulator:  00000000
+> Carryflag:    1
+160c160
+< Zeroflag:     0
+---
+> Zeroflag:     1
+166,167c166,167
+< Accumulator:  00000001
+< Carryflag:    0
+---
+> Accumulator:  00000000
+> Carryflag:    1
+169c169
+< Zeroflag:     0
+---
+> Zeroflag:     1
+175,176c175,176
+< Accumulator:  00000001
+< Carryflag:    0
+---
+> Accumulator:  00000000
+> Carryflag:    1
+178c178
+< Zeroflag:     0
+---
+> Zeroflag:     1
+184,185c184,185
+< Accumulator:  00000001
+< Carryflag:    0
+---
+> Accumulator:  00000000
+> Carryflag:    1
+187c187
+< Zeroflag:     0
+---
+> Zeroflag:     1
+193,194c193,194
+< Accumulator:  00000001
+< Carryflag:    0
+---
+> Accumulator:  00000000
+> Carryflag:    1
+196c196
+< Zeroflag:     0
+---
+> Zeroflag:     1
+202,203c202,203
+< Accumulator:  00000001
+< Carryflag:    0
+---
+> Accumulator:  00000000
+> Carryflag:    1
+205c205
+< Zeroflag:     0
+---
+> Zeroflag:     1
+210,211c210,211
+< Accumulator:  00000001
+< Carryflag:    0
+---
+> Accumulator:  00000000
+> Carryflag:    1
+213c213
+< Zeroflag:     0
+---
+> Zeroflag:     1
+219,221c219,221
+< Accumulator:  00000001
+< Carryflag:    0
+< Signflag:     0
+---
+> Accumulator:  10101010
+> Carryflag:    1
+> Signflag:     1
+228,230c228,230
+< Accumulator:  00000001
+< Carryflag:    0
+< Signflag:     0
+---
+> Accumulator:  11111111
+> Carryflag:    1
+> Signflag:     1
+237,239c237,239
+< Accumulator:  00000001
+< Carryflag:    0
+< Signflag:     0
+---
+> Accumulator:  11111111
+> Carryflag:    1
+> Signflag:     1
+246,248c246,248
+< Accumulator:  00000001
+< Carryflag:    0
+< Signflag:     0
+---
+> Accumulator:  10101010
+> Carryflag:    1
+> Signflag:     1
+255,256c255,256
+< Accumulator:  00000001
+< Carryflag:    0
+---
+> Accumulator:  01010101
+> Carryflag:    1
+264,265c264,265
+< Accumulator:  00000001
+< Carryflag:    0
+---
+> Accumulator:  00000000
+> Carryflag:    1
+267c267
+< Zeroflag:     0
+---
+> Zeroflag:     1
+273,274c273,274
+< Accumulator:  00000001
+< Carryflag:    0
+---
+> Accumulator:  00000000
+> Carryflag:    1
+276c276
+< Zeroflag:     0
+---
+> Zeroflag:     1
+282,283c282,283
+< Accumulator:  00000001
+< Carryflag:    0
+---
+> Accumulator:  00000000
+> Carryflag:    1
+285c285
+< Zeroflag:     0
+---
+> Zeroflag:     1
+291,292c291,292
+< Accumulator:  00000001
+< Carryflag:    0
+---
+> Accumulator:  01010101
+> Carryflag:    1
+300,301c300,301
+< Accumulator:  00000001
+< Carryflag:    0
+---
+> Accumulator:  01010101
+> Carryflag:    1
+309,310c309,310
+< Accumulator:  00000001
+< Carryflag:    0
+---
+> Accumulator:  01010101
+> Carryflag:    1
+318,319c318,319
+< Accumulator:  00000001
+< Carryflag:    0
+---
+> Accumulator:  01010101
+> Carryflag:    1
