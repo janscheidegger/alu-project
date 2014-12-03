@@ -216,6 +216,10 @@ accumulator := rega + regb + carry-flag
 */
 void op_adc(char rega[], char regb[], char accumulator[], char flags[]){
     // your code here
+    alu_reset();
+    clearArray(accumulator);
+    clearArray(flags);
+    op_add(rega, regb, accumulator, flags);
 }
 
 /*
@@ -271,7 +275,6 @@ accumulator := rega AND regb
 */
 void op_and(char rega[], char regb[], char accumulator[], char flags[]){
     clearArray(accumulator);
-    clearOverflowflag(flags);
     int i;
     for(i=REG_WIDTH -1; i>=0;i--) {
         if(rega[i] == '1' && regb[i] == '1')
@@ -290,7 +293,6 @@ accumulator := rega OR regb
 */
 void op_or(char rega[], char regb[], char accumulator[], char flags[]){
     clearArray(accumulator);
-    clearOverflowflag(flags);
     int i;
     for(i=REG_WIDTH -1; i>=0;i--) {
         if(rega[i] == '1' || regb[i] == '1')
@@ -309,7 +311,6 @@ accumulator := rega XOR regb
 */
 void op_xor(char rega[], char regb[], char accumulator[], char flags[]){
     clearArray(accumulator);
-    clearOverflowflag(flags);
     int i;
     for(i=REG_WIDTH -1; i>=0;i--) {
         if(rega[i] ^ regb[i])
@@ -326,14 +327,12 @@ void op_xor(char rega[], char regb[], char accumulator[], char flags[]){
 rega := not(rega)
 */
 void op_not_a(char rega[], char regb[], char accumulator[], char flags[]){
-    clearOverflowflag(flags);
     one_complement(rega);
 }
 
 
 /* Einer Komplement von Register regb */
 void op_not_b(char rega[], char regb[], char accumulator[], char flags[]){
-    clearOverflowflag(flags);
     one_complement(regb);
 }
 
@@ -343,7 +342,6 @@ void op_not_b(char rega[], char regb[], char accumulator[], char flags[]){
 rega := -rega
 */
 void op_neg_a(char rega[], char regb[], char accumulator[], char flags[]){
-    clearOverflowflag(flags);
     two_complement(rega);
 }
 
@@ -352,7 +350,6 @@ void op_neg_a(char rega[], char regb[], char accumulator[], char flags[]){
 regb := -regb
 */
 void op_neg_b(char rega[], char regb[], char accumulator[], char flags[]){
-    clearOverflowflag(flags);
     two_complement(regb);
 }
 
