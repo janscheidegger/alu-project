@@ -90,6 +90,12 @@ void alu_parse_line(char *cmd_line){
     printf("%s %s\n", opcode, operand1);
     break;
   case 1:
+    if(!strcmp(opcode, "asl")) {
+        alu(ALU_OP_ASL, rega, regb, accumulator, flags);
+    }
+    if(!strcmp(opcode, "lsr")) {
+        alu(ALU_OP_LSR, rega, regb, accumulator, flags);
+    }
     if(!strcmp(opcode,"reset")){
       alu(ALU_OP_RESET, rega, regb, accumulator, flags);
       printf("%s\n", opcode);

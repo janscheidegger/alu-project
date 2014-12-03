@@ -144,12 +144,7 @@ void full_adder(char pbit, char qbit, char cbit){
 void one_complement(char reg[]){
     int i;
     for(i=0; i<REG_WIDTH; i++) {
-        if(reg[i] == '0') {
-            reg[i] = '1';
-        }
-        else {
-            reg[i] = '0';
-        }
+        reg[i] = (reg[i] == '1' ? '0' : '1');
     }
 }
 
@@ -182,24 +177,8 @@ void two_complement(char reg[]){
 accumulator := rega + regb
 */
 void op_add(char rega[], char regb[], char accumulator[], char flags[]){
-    alu_reset();
-    clearArray(accumulator);
-    clearArray(flags);
-    int i;
-    for(i=REG_WIDTH -1; i>=0;i--) {
-        full_adder(rega[i], regb[i], m[c]);
-        accumulator[i] = m[s];
-    }
-    if(m[c] == '1')
-        setCarryflag(flags);
-    if ((rega[0] == '1' && regb[0] == '1' && accumulator[0] == '0') || (rega[0] == '0' && regb[0] == '0' && accumulator[0] == '1'))
-    {
-        setOverflowflag(flags);
-    }
-    else {
-        clearOverflowflag(flags);
-    }
-    zsflagging(flags, accumulator);
+    clearCarryflag(flags);
+    op_adc(rega, regb, accumulator, flags);
 }
 
 /*
@@ -215,11 +194,22 @@ accumulator := rega + regb + carry-flag
 
 */
 void op_adc(char rega[], char regb[], char accumulator[], char flags[]){
-    // your code here
-    alu_reset();
-    clearArray(accumulator);
-    clearArray(flags);
-    op_add(rega, regb, accumulator, flags);
+    m[c] = getCarryflag(flags);
+    int i;
+    for(i=REG_WIDTH -1; i>=0;i--) {
+        full_adder(rega[i], regb[i], m[c]);
+        accumulator[i] = m[s];
+    }
+    m[c] == '1' ? setCarryflag(flags) : clearCarryflag(flags);
+    if ((rega[0] == '1' && regb[0] == '1' && accumulator[0] == '0') || (rega[0] == '0' && regb[0] == '0' && accumulator[0] == '1'))
+    {
+        setOverflowflag(flags);
+    }
+    else {
+        clearOverflowflag(flags);
+    }
+    zsflagging(flags, accumulator);
+
 }
 
 /*
@@ -361,12 +351,17 @@ void op_neg_b(char rega[], char regb[], char accumulator[], char flags[]){
 
    arithmetic shift left
    asl
+    
+    ASL Arithmetic Shift Left; Motorola 680x0, Motorola 68300; shifts the contents of a data register (8, 16, or 32 bits) or memory location (16 bits) to the left (towards most significant bit) by a specified amount (by 1 to 8 bits for an immediate operation on a data register, by the contents of a data register modulo 64 for a data register, or by 1 bit only for a memory location), with the high-order bit being shifted into the carry and extend flags, zeros shifted into the low-order bit, overflow flag indicating a change of sign; sets or clear flags
    */
 void op_alu_asl(char regina[], char reginb[], char regouta[], char flags[]){
     int i;
-    for(i=0;i<REG_WIDTH;i++) {
-
+    regouta[0] == '1' ? setCarryflag(flags) : clearCarryflag(flags);
+    for(i=1;i<REG_WIDTH;i++) {
+        regouta[i-1] = regouta[i];
     }
+    regouta[REG_WIDTH-1] = '0';
+    zsflagging(flags, regouta);
 }
 
 
@@ -375,6 +370,12 @@ void op_alu_asl(char regina[], char reginb[], char regouta[], char flags[]){
    lsr
    */
 void op_alu_lsr(char regina[], char reginb[], char regouta[], char flags[]){
+    int i;
+    for(i=REG_WIDTH-1;i>=1;i--) {
+        regouta[i] = regouta[i-1];
+    }
+    regouta[0] = '0';
+    zsflagging(flags, regouta);
 }
 /*
    rotate 
