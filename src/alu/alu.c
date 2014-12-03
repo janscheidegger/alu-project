@@ -382,15 +382,25 @@ void op_alu_lsr(char regina[], char reginb[], char regouta[], char flags[]){
    rotate left
    */
 void op_alu_rol(char regina[], char reginb[], char regouta[], char flags[]){
+    char old_carry = getCarryflag(flags);
+    regouta[0] == '1' ? setCarryflag(flags) : clearCarryflag(flags);
+    int i;
+    for(i = 0; i<REG_WIDTH-1;i++) regouta[i] = regouta[i+1];
+    regouta[REG_WIDTH-1] = old_carry;
+
 }
 
 /*
    rotate 
-   rotate left
+   rotate right
    Move each of the bits in  A one place to the right. Bit 7 is filled with the current value of the carry flag whilst the old bit 0 becomes the new carry flag value.
    */
 void op_alu_ror(char regina[], char reginb[], char regouta[], char flags[]){
-
+    char old_carry = getCarryflag(flags);
+    regouta[REG_WIDTH-1] == '1' ? setCarryflag(flags) : clearCarryflag(flags);
+    int i;
+    for(i = REG_WIDTH-1; i>0;i--) regouta[i] = regouta[i-1];
+    regouta[0] = old_carry;
 }
 
 

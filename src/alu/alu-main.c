@@ -96,6 +96,12 @@ void alu_parse_line(char *cmd_line){
     if(!strcmp(opcode, "lsr")) {
         alu(ALU_OP_LSR, rega, regb, accumulator, flags);
     }
+    if(!strcmp(opcode, "rol")) {
+        alu(ALU_OP_ROL, rega, regb, accumulator, flags);
+    }
+    if(!strcmp(opcode, "ror")) {
+        alu(ALU_OP_ROR, rega, regb, accumulator, flags);
+    }
     if(!strcmp(opcode,"reset")){
       alu(ALU_OP_RESET, rega, regb, accumulator, flags);
       printf("%s\n", opcode);
